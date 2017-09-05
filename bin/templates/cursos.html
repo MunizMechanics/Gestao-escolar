@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:replace="menu :: menu">...</div>
+
+<body>
+<div class="center main-div">
+	<table id="tabela" class="table center table-striped table-bordered"
+		cellspacing="0">
+		<a href="/curso" class="btn btn-success btn-adicionar">Adicionar curso</a>
+		<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Tipo</th>
+			<th>Disciplinas</th> 
+			<th>Ações</th>
+		</tr>
+			</thead> 
+		<tbody>
+		<tr th:each="cr : ${cr}">
+			<td th:text="${cr.nome}"></td>
+			<td th:text="${cr.tipo}"></td>
+			<td ><p th:each="disciplina :${cr.disciplinas}" th:text="${disciplina.nome}"></p></td> 
+						<td><a th:href="'/curso?id=' + ${cr.id}"><span class="glyphicon glyphicon-edit"></span></a>
+			<a th:href="@{/deletarCurso(id=${cr.id})}"><span class="glyphicon glyphicon-remove"></span></a>
+			</td>
+		</tr>
+		 		</tbody> 
+	</table>
+	</div>
+</body>
+<script>
+	$("#cursos").addClass("active");
+
+</script>
+</html>

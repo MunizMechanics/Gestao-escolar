@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:replace="menu :: menu">...</div>
+<meta charset="UTF-8" />
+<style>
+</style>
+<body>
+	<div class="container div-form">
+		<div class="row centered-form">
+			<div
+				class="col-xs-12 col-sm-8 col-md-10 col-sm-offset-2 col-md-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Cadastrar Aluno <small>Sistema de gestão escolar</small>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<form role="form" th:action="@{/aluno}" th:object="${aluno}"
+							method="post">
+							<input type="hidden" th:field="*{id}" />
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-12">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}" />
+										<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</p>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-12">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Telefone" th:field="*{telefone}" />
+										<p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}">Name Error</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Mensalidade" th:field="*{mensalidade}" />
+							</div>
+							<div class="form-group">
+								<select class="form-control" placeholder="Curso" th:field="*{curso}">
+									<option th:each="curso: ${cursos}" th:value="${curso.id}" th:text="${curso.nome}"></option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Cidade" th:field="*{endereco.cidade}" />
+
+							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Rua" th:field="*{endereco.rua}" />
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="number" class="form-control" placeholder="Numero" th:field="*{endereco.numero}" />
+									</div>
+								</div>
+							</div>
+
+							<input type="submit" value="Enviar"
+								class="btn btn-info btn-block" />
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$("#alunos").addClass("active");
+	</script>
+</body>
+</html>

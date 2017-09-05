@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:replace="menu :: menu">...</div>
+<meta charset="UTF-8" />
+<style>
+
+</style>
+<body>
+	<div class="container div-form">
+		<div class="row centered-form">
+			<div
+				class="col-xs-12 col-sm-8 col-md-10 col-sm-offset-2 col-md-offset-1">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							Cadastrar Gestor <small>Sistema de gestão escolar</small>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<form role="form" th:action="@{/gestor}" th:object="${gestor}"
+							method="post">
+							<input type="hidden" th:field="*{id}" />
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-12">
+									<div class="form-group">
+										<input type="text" name="first_name" id="first_name"
+											class="form-control" placeholder="Nome" th:field="*{nome}" />
+										<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name
+											Error</p>
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-12">
+									<div class="form-group">
+										<input type="text" name="last_name" id="last_name"
+											class="form-control" placeholder="Telefone"
+											th:field="*{telefone}" />
+										<p th:if="${#fields.hasErrors('telefone')}"
+											th:errors="*{telefone}">Name Error</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<input type="text" name="email" id="email" class="form-control"
+									placeholder="Salário" th:field="*{salario}" />
+								<p th:if="${#fields.hasErrors('salario')}"
+									th:errors="*{salario}">Name Error</p>
+							</div>
+							<div class="form-group">
+								<input type="text" name="email" id="email" class="form-control"
+									placeholder="Cidade" th:field="*{endereco.cidade}" />
+
+							</div>
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="text" name="password" id="password"
+											class="form-control" placeholder="Rua" th:field="*{endereco.rua}" />
+									</div>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6">
+									<div class="form-group">
+										<input type="number" name="password_confirmation"
+											id="password_confirmation" class="form-control"
+											placeholder="Numero" th:field="*{endereco.numero}" />
+									</div>
+								</div>
+							</div>
+
+							<input type="submit" value="Enviar"
+								class="btn btn-info btn-block" />
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$("#gestores").addClass("active");
+	</script>
+</body>
+</html>

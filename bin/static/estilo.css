@@ -1,0 +1,113 @@
+.centered-form {
+	margin-top: 90px;
+}
+
+.centered-form .panel {
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
+}
+
+.glyphicon-edit, .glyphicon-remove {
+	font-size: 40px;
+	text-align: center;
+	margin-right: auto;
+}
+
+.div-form {
+	margin-top: -70px;
+}
+
+.glyphicon-edit {
+	color: #28ed59;
+}
+
+.glyphicon-remove {
+	color: red;
+}
+
+.main-div {
+	width: 90%;
+	display: block;
+	margin: auto;
+}
+
+.btn-adicionar {
+	margin-top: -50px;
+}
+
+body {
+	margin-top: 130px;
+	background: white;
+}
+
+.navbar, .dropdown-menu {
+	background: #20bc37;
+	border: none;
+}
+
+.nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover,
+	.dropdown-menu>li>a, .dropdown-menu>li {
+	border-bottom: 3px solid transparent;
+}
+
+.nav>li>a:focus, .nav>li>a:hover, .nav .open>a, .nav .open>a:focus, .nav .open>a:hover,
+	.dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
+	border-bottom: 3px solid transparent;
+	background: none;
+}
+
+.navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus,
+	.dropdown-menu>li>a:hover, .navbar-toggle {
+	color: #fff;
+}
+
+.dropdown-menu {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1) {
+	border-bottom: #C4E17F 3px solid;
+}
+
+.nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2) {
+	border-bottom: #F7FDCA 3px solid;
+}
+
+.nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3) {
+	border-bottom: #FECF71 3px solid;
+}
+
+.nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4) {
+	border-bottom: #F0776C 3px solid;
+}
+
+.nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5) {
+	border-bottom: #DB9DBE 3px solid;
+}
+
+.nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6) {
+	border-bottom: #C49CDE 3px solid;
+}
+
+.nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7) {
+	border-bottom: #669AE1 3px solid;
+}
+
+.nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8) {
+	border-bottom: #62C2E4 3px solid;
+}
+
+.navbar-toggle .icon-bar {
+	color: #fff;
+	background: #fff;
+}
+
+.centered-form {
+	margin-top: 90px;
+}
+
+.centered-form .panel {
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 5px 5px 5px;
+}

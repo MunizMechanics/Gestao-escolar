@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:fragment="menu">
+	<head>
+<title>Gestão escolar</title>
+<meta charset="UTF-8" />
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+	integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+	crossorigin="anonymous"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous" />
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous" />
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" />
+<script
+	src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../static/estilo.css" th:href="@{/estilo.css}" />
+
+
+	</head>
+	<header>
+		<div class="navbar-wrapper">
+			<div class="container-fluid">
+				<nav class="navbar navbar-fixed-top">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar"
+								aria-expanded="false" aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand" href="#">Logo</a>
+						</div>
+						<div id="navbar" class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li id="home"><a href="/home">Home</a></li>
+								<li id="alunos"><a href="/alunos">Alunos</a></li>
+								<li id="gestores"><a href="/gestores">Gestores</a></li>
+								<li id="cursos"><a href="/cursos">Cursos</a></li>
+								<li id="disciplinas"><a href="/disciplinas">Disciplinas</a></li>
+
+							</ul>
+							<ul class="nav navbar-nav pull-right">
+								<li class=""><a href="#" th:inline="text">
+										[[${#httpServletRequest.remoteUser}]]</a></li>
+								<li class=""><a href="#" onclick="clica()">Sair
+										<form th:action="@{/logout}" method="post">
+											<input type="submit" value="Sair" class="" id="logout"
+												style="display: none;" />
+										</form>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+
+		<script>
+			function clica() {
+				document.getElementById("logout").click();
+			}
+			$(document).ready(function() {
+				$('#tabela').DataTable();
+			});
+		</script>
+
+	</header>
+</div>
+<script>
+	$("#home").addClass("active");
+</script>
+</html>

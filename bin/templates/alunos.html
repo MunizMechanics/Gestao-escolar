@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div th:replace="menu :: menu">...</div>
+<body>
+	<div class="center main-div">
+		<table id="tabela" class="table center table-striped table-bordered"
+			cellspacing="0">
+			<a href="/aluno" class="btn btn-success btn-adicionar">Adicionar
+				aluno</a>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Telefone</th>
+					<th>Cidade</th>
+					<th>Rua</th>
+					<th>Número</th>
+					<th>Mensalidade</th>
+					<th>Curso</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="ar : ${ar}">
+					<td th:text="${ar.nome}"></td>
+					<td th:text="${ar.telefone}"></td>
+					<td th:text="${ar.endereco.cidade}"></td>
+					<td th:text="${ar.endereco.rua}"></td>
+					<td th:text="${ar.endereco.numero}"></td>
+					<td th:text="${ar.mensalidade}"></td>
+					<td th:text="${ar.curso.nome}"></td>
+					<td><a th:href="'/aluno?id=' + ${ar.id}"><span
+							class="glyphicon glyphicon-edit"></span></a> <a
+						th:href="@{/deletarAluno(id=${ar.id})}"><span
+							class="glyphicon glyphicon-remove"></span></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+<script>
+	$("#alunos").addClass("active");
+</script>
+</html>

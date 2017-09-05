@@ -1,0 +1,2 @@
+-- insert into enderecos(id,cep,cidade,numero,rua) values (1,'9999','poa','3037','rua');
+-- insert into gestores values(1,'seila','9999999',1000,1);
