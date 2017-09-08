@@ -6,9 +6,19 @@
 
 <body>
 <div class="center main-div">
+		<div>
+			<a href="/curso" class="btn btn-success btn-adicionar">Adicionar
+				curso</a>
+
+
+			<div th:if="${#httpServletRequest.getParameter('error') != null}">
+				<span class="alert alert-danger pull-right" style="margin-top:-55px;"><strong>Cuidado!</strong>
+					Você não pode remover um curso vinculada a um aluno!</span>
+			</div>
+		</div>
 	<table id="tabela" class="table center table-striped table-bordered"
 		cellspacing="0">
-		<a href="/curso" class="btn btn-success btn-adicionar">Adicionar curso</a>
+	
 		<thead>
 		<tr>
 			<th>Nome</th>
@@ -22,7 +32,7 @@
 			<td th:text="${cr.nome}"></td>
 			<td th:text="${cr.tipo}"></td>
 			<td ><p th:each="disciplina :${cr.disciplinas}" th:text="${disciplina.nome}"></p></td> 
-						<td><a th:href="'/curso?id=' + ${cr.id}"><span class="glyphicon glyphicon-edit"></span></a>
+						<td class="td-edit"><a th:href="'/curso?id=' + ${cr.id}"><span class="glyphicon glyphicon-edit"></span></a>
 			<a th:href="@{/deletarCurso(id=${cr.id})}"><span class="glyphicon glyphicon-remove"></span></a>
 			</td>
 		</tr>

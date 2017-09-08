@@ -4,6 +4,7 @@ package controllers;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -62,7 +63,11 @@ public class DisciplinaController {
 
 	@GetMapping("/deletarDisciplina")
 	public String deleteDisciplina(@RequestParam(value = "id") Long id) {
+			try {
 			dr.delete(id);
+			} catch (Exception e) {
+				return "redirect:/disciplinas?error=error";
+			}
 			return "redirect:/disciplinas";
 		
 	}

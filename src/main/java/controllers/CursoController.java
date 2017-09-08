@@ -62,7 +62,12 @@ public class CursoController {
 
 	@GetMapping("/deletarCurso")
 	public String deleteCurso(@RequestParam(value = "id") Long id) {
-			cr.delete(id);
+		try {
+		    Curso curso = cr.findOne(id);
+			cr.delete(curso);
+		} catch (Exception e) {
+			return "redirect:/cursos?error=error";
+			}
 			return "redirect:/cursos";
 		
 	}

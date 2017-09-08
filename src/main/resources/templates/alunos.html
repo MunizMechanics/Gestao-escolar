@@ -28,9 +28,9 @@
 					<td th:text="${ar.endereco.cidade}"></td>
 					<td th:text="${ar.endereco.rua}"></td>
 					<td th:text="${ar.endereco.numero}"></td>
-					<td th:text="${ar.mensalidade}"></td>
+					<td th:text="'R$ '+${ar.mensalidade}"></td>
 					<td th:text="${ar.curso.nome}"></td>
-					<td><a th:href="'/aluno?id=' + ${ar.id}"><span
+					<td><a class="td-edit" th:href="'/aluno?id=' + ${ar.id}"><span
 							class="glyphicon glyphicon-edit"></span></a> <a
 						th:href="@{/deletarAluno(id=${ar.id})}"><span
 							class="glyphicon glyphicon-remove"></span></a></td>

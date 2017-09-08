@@ -19,6 +19,14 @@
 
 .glyphicon-edit {
 	color: #28ed59;
+	margin-right:20px;
+}
+.alert{
+	margin-top:9px;
+	margin-bottom: 1px;
+	height: 40px;
+	line-height:40px;
+	padding:0px 20px;
 }
 
 .glyphicon-remove {
@@ -41,7 +49,7 @@ body {
 }
 
 .navbar, .dropdown-menu {
-	background: #20bc37;
+	background: #22c1d6;
 	border: none;
 }
 
@@ -61,29 +69,34 @@ body {
 	color: #fff;
 }
 
+.td-edit {
+	text-align: center;
+	width: 150px;
+}
+
 .dropdown-menu {
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 
 .nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1) {
-	border-bottom: #C4E17F 3px solid;
+	border-bottom: #000cff 3px solid;
 }
 
 .nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2) {
-	border-bottom: #F7FDCA 3px solid;
+	border-bottom: #ff0000 3px solid;
 }
 
 .nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3) {
-	border-bottom: #FECF71 3px solid;
+	border-bottom: #f4cc00 3px solid;
 }
 
 .nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4) {
-	border-bottom: #F0776C 3px solid;
+	border-bottom: #63ff02 3px solid;
 }
 
 .nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5) {
-	border-bottom: #DB9DBE 3px solid;
+	border-bottom: #e500c6 3px solid;
 }
 
 .nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6) {

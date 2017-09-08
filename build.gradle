@@ -28,6 +28,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-web-services')
+	compile("org.hibernate:hibernate-validator")
 	runtime('org.apache.derby:derby')
 	runtime('org.springframework.boot:spring-boot-devtools')
 	compile files('libs/ojdbc8.jar')

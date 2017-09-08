@@ -36,18 +36,18 @@ background: ;
 								
 									<div class="form-group">
 										<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}" />
-										<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</p>
+										<p class="alert alert-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</p>
 									</div>
 								
 
 							<div class="form-group">
-								<input type="number" class="form-control" placeholder="Creditos" th:field="*{creditos}" />
+								<input type="number" class="form-control creditos" placeholder="Creditos" th:field="*{creditos}" />
 							</div>
-							<div class="form-group">
+<!-- 							<div class="form-group">
  								<select class="form-control selectpicker" multiple="multiple" data-selected-text-format="count > 3"  placeholder="Cursos" th:field="*{cursos}">
 									<option th:each="c: ${cursos}" th:value="${c.id}" th:text="${c.nome}"></option>
 								</select> 
-							</div>
+							</div> -->
 
 
 							<input type="submit" value="Enviar"
@@ -60,7 +60,8 @@ background: ;
 		</div>
 	</div>
 	<script>
-		$("#cursos").addClass("active");
+		$("#disciplinas").addClass("active");
+		$('.creditos').mask('0');
 		
 	</script>
 </body>

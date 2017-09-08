@@ -14,7 +14,7 @@ public class MainController {
 	public MainController() {
 	}
 	
-	@GetMapping("/menu")
+	@RequestMapping("/menu")
 	public String menu(Model model) {
 		return "menu";
 	}

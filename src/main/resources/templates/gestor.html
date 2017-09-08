@@ -27,25 +27,25 @@
 									<div class="form-group">
 										<input type="text" name="first_name" id="first_name"
 											class="form-control" placeholder="Nome" th:field="*{nome}" />
-										<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name
+										<p class="alert alert-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name
 											Error</p>
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-12">
 									<div class="form-group">
 										<input type="text" name="last_name" id="last_name"
-											class="form-control" placeholder="Telefone"
+											class="form-control phone" placeholder="Telefone"
 											th:field="*{telefone}" />
-										<p th:if="${#fields.hasErrors('telefone')}"
+										<p class="alert alert-danger" th:if="${#fields.hasErrors('telefone')}"
 											th:errors="*{telefone}">Name Error</p>
 									</div>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<input type="text" name="email" id="email" class="form-control"
-									placeholder="Salário" th:field="*{salario}" />
-								<p th:if="${#fields.hasErrors('salario')}"
+								<input type="text" name="email" id="email" class="form-control money"
+									placeholder="Salário" th:field="*{salario}" min="1" />
+								<p class="alert alert-danger" th:if="${#fields.hasErrors('salario')}"
 									th:errors="*{salario}">Name Error</p>
 							</div>
 							<div class="form-group">
@@ -81,6 +81,8 @@
 	</div>
 	<script>
 		$("#gestores").addClass("active");
+		$('.phone').mask('(00) 00000-0000');
+		$('.money').mask('0000.00');
 	</script>
 </body>
 </html>

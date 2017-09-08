@@ -2,35 +2,52 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-	<div th:replace="menu :: menu">...</div>
-	
-	<body>
-<div class="center main-div">
-	<table id="tabela" class="table center table-striped table-bordered"
-		cellspacing="0">
-		<a href="/disciplina" class="btn btn-success btn-adicionar">Adicionar disciplina</a>
-		<thead>
-		<tr>
-			<th>Nome</th>
-			<th>Creditos</th>
-			<th>Cursos</th>
-			<th>Ações</th>
-		</tr>
-			</thead> 
-		<tbody>
-		<tr th:each="dr : ${dr}">
-			<td th:text="${dr.nome}"></td>
-			<td th:text="${dr.creditos}"></td>
-			<td ><p th:each="curso :${dr.cursos}" th:text="${curso.nome}"></p></td> 
-						<td style="display:block;text-align: center;"><a th:href="'/disciplina?id=' + ${dr.id}"><span class="glyphicon glyphicon-edit" style="display:block;margin: 0 auto;text-align: center;"></span></a>
-			<a style="display:block;text-align: center;" th:href="@{/deletarDisciplina(id=${dr.id})}"><span class="glyphicon glyphicon-remove" style="display:block;margin: 0 auto;text-align: center;"></span></a>
-			</td>
-		</tr>
-		 		</tbody> 
-	</table>
+<div th:replace="menu :: menu">...</div>
+<body>
+
+
+
+
+
+	<div class="center main-div">
+		<div>
+			<a href="/disciplina" class="btn btn-success btn-adicionar">Adicionar
+				disciplina</a>
+
+
+			<div th:if="${#httpServletRequest.getParameter('error') != null}">
+				<span class="alert alert-danger pull-right" style="margin-top:-55px;"><strong>Cuidado!</strong>
+					Você não pode remover uma disciplina vinculada a um curso!</span>
+			</div>
+		</div>
+		<table id="tabela" class="table center table-striped table-bordered"
+			cellspacing="0">
+			<div class=""></div>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Creditos</th>
+					<th>Cursos</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="dr : ${dr}">
+					<td th:text="${dr.nome}"></td>
+					<td th:text="${dr.creditos}"></td>
+					<td><p th:each="curso :${dr.cursos}" th:text="${curso.nome}"></p></td>
+					<td class="td-edit"><a th:href="'/disciplina?id=' + ${dr.id}"><span
+							style="" class="glyphicon glyphicon-edit"></span></a> <a
+						th:href="@{/deletarDisciplina(id=${dr.id})}"><span
+							class="glyphicon glyphicon-remove"></span></a></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
+
+
 </body>
-	<script>
-	$( "#disciplinas" ).addClass( "active" );
-	</script>
-	</html>
+<script>
+	$("#disciplinas").addClass("active");
+</script>
+</html>

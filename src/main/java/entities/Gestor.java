@@ -14,8 +14,7 @@ import javax.validation.constraints.Size;
 @Table(name = "Gestores")
 public class Gestor extends Pessoa{
 
-    @NotNull
-    @Min(0)
+    @NotNull(message="O campo salário não pode ser nulo.")
 	private BigDecimal salario;
 
 	public BigDecimal getSalario() {

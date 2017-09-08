@@ -18,6 +18,9 @@ background: ;
 }
 </style>
 <body>
+	<script>
+		$("#cursos").addClass("active");
+	</script>
 	<div class="container div-form">
 		<div class="row centered-form">
 			<div
@@ -36,12 +39,18 @@ background: ;
 								
 									<div class="form-group">
 										<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}" />
-										<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</p>
+										<p class="alert alert-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</p>
 									</div>
 								
 
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Tipo" th:field="*{tipo}" />
+								<select class="form-control" placeholder="Tipo" th:field="*{tipo}">
+								<option value="" selected="selected" hidden="hidden">Selecione um tipo de curso</option>
+								<option value="Tecnico">Tecnico</option>
+								<option value="Subsquente">Subsquente</option>
+								<option value="Tecnologo">Tecnologo</option>
+								<option value="Superior">Superior</option>
+								</select>
 							</div>
 							<div class="form-group">
  								<select class="form-control selectpicker" multiple="multiple" data-selected-text-format="count > 3"  placeholder="Disciplinas" th:field="*{disciplinas}">
@@ -59,9 +68,6 @@ background: ;
 			</div>
 		</div>
 	</div>
-	<script>
-		$("#cursos").addClass("active");
-		
-	</script>
+
 </body>
 </html>

@@ -25,39 +25,40 @@
 								<div class="col-xs-6 col-sm-6 col-md-12">
 									<div class="form-group">
 										<input type="text" class="form-control" placeholder="Nome" th:field="*{nome}" />
-										<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</p>
+										<p class="alert alert-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">Name Error</p>
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-12">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Telefone" th:field="*{telefone}" />
-										<p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}">Name Error</p>
+										<input type="text" class="form-control phone" placeholder="Telefone" required="required" th:field="*{telefone}" />
+										<p class="alert alert-danger" th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}">Name Error</p>
 									</div>
 								</div>
 							</div>
 
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Mensalidade" th:field="*{mensalidade}" />
+								<input type="number" class="form-control money" placeholder="Mensalidade" required="required" th:field="*{mensalidade}" />
+								<p class="alert alert-danger" th:if="${#fields.hasErrors('mensalidade')}" min="1" th:errors="*{mensalidade}">Name Error</p>
 							</div>
 							<div class="form-group">
-								<select class="form-control" placeholder="Curso" th:field="*{curso}">
+								<select class="form-control" placeholder="Curso" th:field="*{curso}" required="required">
 									<option th:each="curso: ${cursos}" th:value="${curso.id}" th:text="${curso.nome}"></option>
 								</select>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Cidade" th:field="*{endereco.cidade}" />
+								<input type="text" class="form-control" placeholder="Cidade" required="required" th:field="*{endereco.cidade}" />
 
 							</div>
 
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Rua" th:field="*{endereco.rua}" />
+										<input type="text" class="form-control" placeholder="Rua" required="required" th:field="*{endereco.rua}" />
 									</div>
 								</div>
 								<div class="col-xs-6 col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="number" class="form-control" placeholder="Numero" th:field="*{endereco.numero}" />
+										<input type="number" class="form-control" placeholder="Numero" required="required" th:field="*{endereco.numero}" />
 									</div>
 								</div>
 							</div>
@@ -73,6 +74,8 @@
 	</div>
 	<script>
 		$("#alunos").addClass("active");
+		$('.phone').mask('(00) 00000-0000');
+		$('.money').mask('0000.00');
 	</script>
 </body>
 </html>

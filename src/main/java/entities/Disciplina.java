@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
@@ -16,12 +18,10 @@ import javax.validation.constraints.Size;
 @Table(name = "Disciplinas")
 public class Disciplina extends BaseEntity{
 	
-    @NotNull
-    @Size(min=2, max=100)
+	@Size(min=2, max=30, message = "O campo nome deve ter entre 2 e 30 caracteres")
 	private String nome;
-	
 	@ManyToMany(mappedBy="disciplinas")
-	private List<Curso> cursos = new ArrayList<Curso>();
+	private List<Curso> cursos;
 	private int creditos;
 	
 	

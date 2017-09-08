@@ -13,12 +13,11 @@ import javax.persistence.SequenceGenerator;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-
 @MappedSuperclass
 public abstract class Pessoa extends BaseEntity{
 	
-    @NotNull
-    @Size(min=2, max=30)
+    
+    @Size(min=2, max=30, message = "O campo nome deve ter entre 2 e 30 caracteres")
 	private String nome;
 	@OneToOne (cascade = CascadeType.ALL)
 	@JoinColumn (name="id_endereco")
